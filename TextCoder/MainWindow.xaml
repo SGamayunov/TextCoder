@@ -7,6 +7,39 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+            <Button Margin="2,2,2,2" Width="100" Content="Выбрать файл" Name="FileSelectButton" Click="FileSelectButton_Click"/>
+            <Button Margin="2,2,2,2" Width="180" Name="ReloadFileButton">Загрузить файл заново</Button>
+            <Button Margin="2,2,2,2" Width="120" Click="RapleceCharactersButton_Click" Background="Green" Name="RapleceCharactersButton">Заменить буквы</Button>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+        
+                <TextBox Name="FileContentTextBlock" TextWrapping="Wrap"/>
+                <TextBox Name="DecodedContentTextBlock" TextWrapping="Wrap" Grid.Column="1"/>
+            </Grid>
+        </ScrollViewer>
+        <Button Grid.Column="1" Content="Добавить" Click="Button_Click"/>
+        
+        <ScrollViewer Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Vertical" Name="CharStack">
+                <local:CharacterPair Character1="A" Character2="B"/>
+            </StackPanel>
+        </ScrollViewer>
+        
     </Grid>
 </Window>
